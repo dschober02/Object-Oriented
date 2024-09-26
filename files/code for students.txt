@@ -1,0 +1,82 @@
+import java.util.*;
+import java.io.*;
+class Dog {
+    private String _name;
+    private String _breed;
+    private int _age;
+    public Dog() {}
+    public Dog(String s1, String s2, int x){
+        _name = s1;
+        _breed = s2;
+        _age = x;
+    }
+    public void setName(String n) {_name = n;}
+    public void setBreed(String b){_breed = b;}
+    public void setAge(int x){_age = x;}
+    public String getName() {return _name;}
+    public String getBreed() {return _breed;}
+    public int getAge(){return _age;}
+}
+class Daycare{
+    private ArrayList<Dog> _dogs;
+
+    private int find(String n){
+        boolean found = false;
+        int i = 0;
+        while(i < _dogs.size() && !found){
+            if (_dogs.get(i).getName().equals(n))
+                found = true;
+            else
+                i++;
+        }
+        if (found == false)
+            return -1;
+        else
+            return i;
+    }
+
+    public Daycare(){
+        _dogs = new ArrayList<Dog>();
+    }
+    public Daycare(int size){
+        _dogs = new ArrayList<Dog>(size);
+    }
+    public void addDog(String n, String b, int a){
+        Dog t = new Dog(n, b, a);
+        _dogs.add(t);
+    }
+    public boolean removeDog(String n){
+        int idx = find(n);
+        if (idx == -1)
+            return false;
+        else {
+            _dogs.remove(idx);
+            return true;
+        }
+    }
+    public boolean modifyAge(String n, int a){
+        int idx = find(n);
+        if (idx == -1)
+            return false;
+        else {
+            _dogs.get(idx).setAge(a);
+            return true;
+        }
+    }
+    public int findAge(String name){return 0;}
+    public String getName(int idx){
+        return _dogs.get(idx).getName();
+    }
+    public int getAge(int idx){
+        return _dogs.get(idx).getAge();
+    }
+    public int size(){
+        return _dogs.size();
+    }
+
+}
+public class Main {
+    public static void main(String[] args) throws IOException{
+
+    }
+}

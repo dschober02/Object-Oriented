@@ -1,6 +1,5 @@
-package OldHomework;
+package OldHomework.HW2;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 //  Name: Derek Schober
